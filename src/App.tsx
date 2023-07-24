@@ -32,7 +32,6 @@ const App: VFC = () => {
 		fakeMockFetch()
 	},[])
 
-console.log("questionIndex",questionIndex)
 
   const fakeMockFetch = () => MockApi()
 	.then((resp:any) => setFetchedData(resp))
@@ -58,7 +57,6 @@ console.log("questionIndex",questionIndex)
        return <StartQuiz onSuccess={handleNext} />
     }}
   
-console.log(fetchedData?.data?.questions)
 
   return (
   <Provider store={store}>

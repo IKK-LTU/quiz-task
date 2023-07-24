@@ -58,7 +58,6 @@ const Question = ({questionIndex,pagesCounter, questionData, onSuccess, onBack}:
 		onSuccess()
 	}
 
-console.log("selectedAnswers",selectedAnswers)
 
 const handleLoacalStorage = () => localStorage.setItem(`q${questionIndex - 1}`, JSON.stringify(selectedAnswers))
 

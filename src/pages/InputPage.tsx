@@ -47,7 +47,6 @@ const [age, setAge] = useState<Number>(0)
 		setAge(event.target.value)
 	}
 
-console.log("age",age)
 	return (
 		<PageContent pageCountText={pagesCounter}>
 			<StyledContainer>
