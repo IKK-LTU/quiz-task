@@ -5,7 +5,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { configStore } from './state/store';
 import StartQuiz from './pages/StartQuiz';
 import InputPage from './pages/InputPage';
-import Question from './components/QuestionForm/Question'
+import Question from './pages/Question'
 import InfoPage from './pages/InfoPage';
 
 import './index.css'

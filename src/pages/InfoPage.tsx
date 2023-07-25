@@ -5,6 +5,7 @@ import {Button, Stack, Typography} from '@mui/material'
 import Title from '../components/elements/Title'
 import PageContent from '../components/layout/PageContent'
 import styled from 'styled-components'
+import SubmitBtn from '../components/elements/SubmitBtn'
 
 type InfoPageProps = {
 	data: any,
@@ -14,18 +15,11 @@ type InfoPageProps = {
 }
 
 const StyledContainer = styled(Stack)`
-	height: 100vh;
 	align-items: center;
 	flex-direction: column;
 	gap: 2rem;
 	max-widht: 544px;
-	padding: 3rem 0;
-` 
-const StyledButton = styled(Button)`
-	width: 352px;
-	text-transform: none;
-	background: rgba(170, 0, 255, 1);
-	font-weight: 600;
+	padding: 4rem 1rem;
 ` 
 
 const InfoPage = ({data, pagesCounter, onSuccess, onBack}:InfoPageProps) => {
@@ -40,12 +34,13 @@ const InfoPage = ({data, pagesCounter, onSuccess, onBack}:InfoPageProps) => {
 
 				<Typography>{data.caption}</Typography>
 
-				<StyledButton variant="contained" 
+				<SubmitBtn variant="contained" 
 					disableRipple
 					onClick={onSuccess}
+					sx={{width: 300}}
 				 >
 					{data?.options[0]?.label}
-				</StyledButton>
+				</SubmitBtn>
 			</StyledContainer>
 		</PageContent>
 	)

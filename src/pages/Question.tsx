@@ -7,17 +7,17 @@ import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 
-import { MOCK_DATA } from '../../assets/mock-data'
-import Title from '../../components/elements/Title'
-import AnswerButton from '../../components/elements/AnswerButton';
-import PageContent from '../layout/PageContent';
+import { MOCK_DATA } from '../assets/mock-data'
+import Title from '../components/elements/Title'
+import AnswerButton from '../components/elements/AnswerButton';
+import PageContent from '../components/layout/PageContent';
+import SubmitBtn from '../components/elements/SubmitBtn';
 
 
 const StyledContainer = styled(Stack)`
-	min-height: 100vh;
 	align-items: center;
-	justify-content: center;
 	flex-direction: column;
+	padding: 4rem 2rem;
 ` 
 
 
@@ -62,15 +62,13 @@ const Question = ({questionIndex,pagesCounter, questionData, onSuccess, onBack}:
 const handleLoacalStorage = () => localStorage.setItem(`q${questionIndex - 1}`, JSON.stringify(selectedAnswers))
 
 	useEffect(()=> {
-		// const initialValue = localStorage.getItem(`q${questionIndex}`)
 		if(selectedAnswers && selectedAnswers.length !== 0) {
 			handleLoacalStorage()
 		}
 	},[questionIndex])
 
 	useEffect(()=> {
-		setSelectedAnswers([])
-
+			setSelectedAnswers([])
 	},[questionIndex])
 
 	
@@ -121,14 +119,14 @@ const handleLoacalStorage = () => localStorage.setItem(`q${questionIndex - 1}`, 
 									</Stack>
 							</AnswerButton>
 						))}
-						<Button
+						<SubmitBtn
 							fullWidth
 							variant="contained"
 							sx={{textTransform: 'none', fontWeight: 600}}
 							onClick={handleContinueBtn}
 						>
 							Continue
-						</Button>
+						</SubmitBtn>
 					</Stack>
 					}
 				</StyledContainer>
