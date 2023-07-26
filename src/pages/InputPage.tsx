@@ -36,15 +36,19 @@ const StyledButton = styled(Button)`
 type InfoPageProps = {
 	questionData?: any,
 	pagesCounter: string
+	questionIndex: number
 	onSuccess: () => void
 	onBack: () => void
 }
 
-const InputPage = ({questionData, pagesCounter, onSuccess, onBack}:InfoPageProps) => {
+const InputPage = ({questionData,questionIndex, pagesCounter, onSuccess, onBack}:InfoPageProps) => {
 const [age, setAge] = useState<Number>(0)
+
+const handleLoacalStorage = (value: Array<string> | string[]) => localStorage.setItem(`q${questionIndex}`, JSON.stringify(value))
 
 	const handleChange = (event:any) => {
 		setAge(event.target.value)
+		handleLoacalStorage([event.target.value])
 	}
 
 	return (

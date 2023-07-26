@@ -50,9 +50,9 @@ const App: VFC = () => {
       case 'multiple':
         return<Question pagesCounter={pagesCounter} questionIndex={questionIndex - 1} questionData={questionData} onSuccess={handleNext} onBack={handleBack} /> 
       case 'info':
-        return <InfoPage pagesCounter={pagesCounter} questionData={questionData} onSuccess={handleNext} onBack={handleBack} /> 
+        return <InfoPage pagesCounter={pagesCounter}  questionData={questionData} onSuccess={handleNext} onBack={handleBack} /> 
       case 'input':
-        return <InputPage pagesCounter={pagesCounter} questionData={questionData} onSuccess={handleNext} onBack={handleBack} />
+        return <InputPage pagesCounter={pagesCounter} questionIndex={questionIndex - 1} questionData={questionData} onSuccess={handleNext} onBack={handleBack} />
       default:
        return <StartQuiz onSuccess={handleNext} />
     }}
