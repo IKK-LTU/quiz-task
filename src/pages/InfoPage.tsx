@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Button, Stack, Typography} from '@mui/material'
+import {Stack, Typography} from '@mui/material'
 
 import Title from '../components/elements/Title'
 import PageContent from '../components/layout/PageContent'
@@ -8,7 +8,7 @@ import styled from 'styled-components'
 import SubmitBtn from '../components/elements/SubmitBtn'
 
 type InfoPageProps = {
-	data: any,
+	questionData: any,
 	pagesCounter: string
 	onSuccess: () => void
 	onBack: () => void
@@ -22,24 +22,24 @@ const StyledContainer = styled(Stack)`
 	padding: 4rem 1rem;
 ` 
 
-const InfoPage = ({data, pagesCounter, onSuccess, onBack}:InfoPageProps) => {
+const InfoPage = ({questionData, pagesCounter, onSuccess, onBack}:InfoPageProps) => {
 	return (
 		<PageContent pageCountText={pagesCounter} onBack={onBack}>
 			<StyledContainer>
-				<Title text={data.label}/>
+				<Title text={questionData.label}/>
 
-				<Typography>{data.description}</Typography>
-					{data.imgSrc && <img style={{width: '400px'}} src={data.imgSrc} alt={data.label}/>}
-				<Typography>{data.description1}</Typography>
+				<Typography>{questionData.description}</Typography>
+					{questionData.imgSrc && <img style={{width: '400px'}} src={questionData.imgSrc} alt={questionData.label}/>}
+				<Typography>{questionData.description1}</Typography>
 
-				<Typography>{data.caption}</Typography>
+				<Typography>{questionData.caption}</Typography>
 
 				<SubmitBtn variant="contained" 
 					disableRipple
 					onClick={onSuccess}
 					sx={{width: 300}}
 				 >
-					{data?.options[0]?.label}
+					{questionData?.options[0]?.label}
 				</SubmitBtn>
 			</StyledContainer>
 		</PageContent>

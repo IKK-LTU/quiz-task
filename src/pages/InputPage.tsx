@@ -34,13 +34,13 @@ const StyledButton = styled(Button)`
 
 
 type InfoPageProps = {
-	data: any,
+	questionData?: any,
 	pagesCounter: string
 	onSuccess: () => void
 	onBack: () => void
 }
 
-const InputPage = ({data, pagesCounter, onSuccess, onBack}:InfoPageProps) => {
+const InputPage = ({questionData, pagesCounter, onSuccess, onBack}:InfoPageProps) => {
 const [age, setAge] = useState<Number>(0)
 
 	const handleChange = (event:any) => {
@@ -50,8 +50,8 @@ const [age, setAge] = useState<Number>(0)
 	return (
 		<PageContent pageCountText={pagesCounter}>
 			<StyledContainer>
-				<Title text="How young you are?"/>
-				<StyledTextField id="age" placeholder="Age" type="number" label="Age" variant="outlined" onChange={handleChange} />
+				<Title text={questionData.label}/>
+				<StyledTextField id={questionData.key} placeholder={questionData.key} type="number" label="Age" variant="outlined" onChange={handleChange} />
 				<StyledButton onClick={onSuccess} disabled={!age || age < 0} >
 					Next
 				</StyledButton>

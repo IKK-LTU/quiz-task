@@ -37,7 +37,7 @@ const App: VFC = () => {
 	.then((resp:any) => setFetchedData(resp))
 	.catch(() => setError("Fetch failed"))
 
-	const pagesCounter = `${questionIndex}/${fetchedData?.data?.questions?.length}`
+	const pagesCounter = `${questionIndex - 1}/${fetchedData?.data?.questions?.length}`
 
 
   const resolvePage = () => {
@@ -48,11 +48,11 @@ const App: VFC = () => {
       case 'single':
         return <Question pagesCounter={pagesCounter} questionIndex={questionIndex -1} questionData={questionData} onSuccess={handleNext} onBack={handleBack} /> 
       case 'multiple':
-        return<Question pagesCounter={pagesCounter} questionIndex={questionIndex -1} questionData={questionData} onSuccess={handleNext} onBack={handleBack} /> 
+        return<Question pagesCounter={pagesCounter} questionIndex={questionIndex - 1} questionData={questionData} onSuccess={handleNext} onBack={handleBack} /> 
       case 'info':
-        return <InfoPage pagesCounter={pagesCounter} data={questionData} onSuccess={handleNext} onBack={handleBack} /> 
+        return <InfoPage pagesCounter={pagesCounter} questionData={questionData} onSuccess={handleNext} onBack={handleBack} /> 
       case 'input':
-        return <InputPage pagesCounter={pagesCounter} data={questionData} onSuccess={handleNext} onBack={handleBack} />
+        return <InputPage pagesCounter={pagesCounter} questionData={questionData} onSuccess={handleNext} onBack={handleBack} />
       default:
        return <StartQuiz onSuccess={handleNext} />
     }}
@@ -62,11 +62,8 @@ const App: VFC = () => {
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <>
-        {fetchedData?.data?.questions 
-          && resolvePage()
-        }
+        {fetchedData?.data?.questions && resolvePage()}
       </>
-
     </PersistGate>
   </Provider>
 )};
