@@ -59,7 +59,6 @@ const Question = ({questionIndex, pagesCounter, questionData, onSuccess, onBack}
 	};
 
 	const handleSelect = (value: string) => {
-		console.log("value",value, questionIndex)
 		handleLoacalStorage([value])
 		setSelectedAnswers([value])
 		onSuccess()

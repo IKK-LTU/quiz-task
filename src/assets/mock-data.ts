@@ -249,6 +249,11 @@ export const MOCK_DATA = {
         label: 'How young are you?',
         key: 'age'
       },
+      {
+        type: 'results',
+        label: 'Analyzing...',
+        key: 'results'
+      }
     ]
   }
 };

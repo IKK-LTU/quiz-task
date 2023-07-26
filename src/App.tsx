@@ -10,6 +10,7 @@ import InfoPage from './pages/InfoPage';
 
 import './index.css'
 import MockApi from './apis/api';
+import Results from './pages/Results';
 const { store, persistor } = configStore();
 
 
@@ -37,7 +38,7 @@ const App: VFC = () => {
 	.then((resp:any) => setFetchedData(resp))
 	.catch(() => setError("Fetch failed"))
 
-	const pagesCounter = `${questionIndex - 1}/${fetchedData?.data?.questions?.length}`
+	const pagesCounter = `${questionIndex}/${fetchedData?.data?.questions?.length - 1}`
 
 
   const resolvePage = () => {
@@ -53,6 +54,8 @@ const App: VFC = () => {
         return <InfoPage pagesCounter={pagesCounter}  questionData={questionData} onSuccess={handleNext} onBack={handleBack} /> 
       case 'input':
         return <InputPage pagesCounter={pagesCounter} questionIndex={questionIndex - 1} questionData={questionData} onSuccess={handleNext} onBack={handleBack} />
+      case 'results':
+        return <Results pagesCounter={pagesCounter} questionIndex={questionIndex - 1} questionData={questionData} onBack={handleBack} />
       default:
        return <StartQuiz onSuccess={handleNext} />
     }}

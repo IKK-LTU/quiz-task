@@ -52,7 +52,7 @@ const handleLoacalStorage = (value: Array<string> | string[]) => localStorage.se
 	}
 
 	return (
-		<PageContent pageCountText={pagesCounter}>
+		<PageContent pageCountText={pagesCounter} onBack={onBack}>
 			<StyledContainer>
 				<Title text={questionData.label}/>
 				<StyledTextField id={questionData.key} placeholder={questionData.key} type="number" label="Age" variant="outlined" onChange={handleChange} />
